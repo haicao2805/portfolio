@@ -10,8 +10,7 @@ export class UserService {
             return await this.userRepository.save(user);
       }
 
-      async findUserByGoogleId(googleId: string): Promise<User> {
-            const user = await this.userRepository.findOne({ googleId: googleId });
-            return user;
+      async findUserByField(field: keyof User, value: any): Promise<User> {
+            return await this.userRepository.createQueryBuilder().where(`${field} = :value`, { value }).getOne();
       }
 }
