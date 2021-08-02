@@ -1,16 +1,20 @@
-import { Column, Entity, ObjectIdColumn, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { UserRole } from './user.userRole.enum';
 
 @Entity()
 export class User {
       @PrimaryGeneratedColumn('uuid')
       id: string;
 
-      @Column()
+      @Column({ default: null, unique: true })
       googleId: string;
 
-      @Column()
+      @Column({ default: null })
       username: string;
 
-      @Column()
+      @Column({ default: null, unique: true })
       email: string;
+
+      @Column({ default: UserRole.USER.toString() })
+      role: UserRole;
 }
