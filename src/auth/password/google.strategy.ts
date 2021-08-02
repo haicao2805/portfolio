@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { Profile, Strategy, VerifyCallback } from 'passport-google-oauth20';
+import { UserRole } from 'src/user/entities/user.userRole.enum';
 import { User } from '../../user/entities/user.entity';
 import { UserService } from '../../user/user.service';
 
@@ -23,6 +24,7 @@ export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
                         user.googleId = profile.id;
                         user.username = profile.displayName;
                         user.email = profile.emails[0].value;
+                        user.role = UserRole.USER;
                         user = await this.userService.saveUser(user);
                   }
                   done(null, user);
