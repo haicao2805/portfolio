@@ -7,6 +7,7 @@ import { AuthModule } from './auth/auth.module';
 import { Token } from './auth/entities/token.entity';
 import { User } from './user/entities/user.entity';
 import { UserModule } from './user/user.module';
+import { BotModule } from './bot/bot.module';
 
 const Config = ConfigModule.forRoot({
       isGlobal: true,
@@ -26,7 +27,7 @@ const DBConfig = TypeOrmModule.forRoot({
 });
 
 @Module({
-      imports: [AuthModule, Config, DBConfig, UserModule],
+      imports: [AuthModule, Config, DBConfig, UserModule, BotModule],
       controllers: [AppController],
       providers: [AppService],
 })
