@@ -13,6 +13,11 @@ export class AuthService {
             private readonly jwtService: JwtService,
       ) {}
 
+      /**
+       * take googId of user, then parse it into jwt string
+       * @param googleId
+       * @returns jwt string
+       */
       async createToken(googleId: string) {
             // 1. Create and save token
             const token = new Token();
@@ -26,19 +31,33 @@ export class AuthService {
             return jwtString;
       }
 
+      /**
+       *
+       * @param googleId clear token base on googleId
+       */
       async clearToken(googleId: string) {
             await this.tokenRepository.delete({ data: googleId });
       }
 
-      encryptToken(data: Record<any, any>) {
+      /**
+       * parse token entity into jwt string
+       * @param token
+       * @returns jwt string or null
+       */
+      encryptToken(token: Record<any, any>) {
             try {
-                  return this.jwtService.sign(JSON.stringify(data));
+                  return this.jwtService.sign(JSON.stringify(token));
             } catch (err) {
                   console.log(err);
                   return null;
             }
       }
 
+      /**
+       * parse jwt string into T
+       * @param jwtString
+       * @returns type T
+       */
       verifyToken<T>(jwtString: string) {
             try {
                   return this.jwtService.verify<any>(jwtString) as T;
@@ -49,5 +68,22 @@ export class AuthService {
 
       async findTokenByField(field: keyof Token, value: any): Promise<Token> {
             return await this.tokenRepository.createQueryBuilder().where(`${field} = :value`, { value }).getOne();
+      }
+
+      /**
+       * Get user by the token of cookie
+       * @param jwtString
+       */
+      async getUserByToken(jwtString: string): Promise<User> {
+            let token: Token = this.verifyToken<Token>(jwtString);
+            if (!token) return null;
+
+            token = await this.findTokenByField('id', token.id);
+            if (!token) return null;
+
+            const user = await this.userService.findUserByField('googleId', token.data);
+            if (!user) return null;
+
+            return user;
       }
 }
