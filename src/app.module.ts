@@ -8,6 +8,8 @@ import { Token } from './auth/entities/token.entity';
 import { User } from './user/entities/user.entity';
 import { UserModule } from './user/user.module';
 import { BotModule } from './bot/bot.module';
+import { BlogModule } from './blog/blog.module';
+import { Blog } from './blog/entities/blog.entity';
 
 const Config = ConfigModule.forRoot({
       isGlobal: true,
@@ -23,11 +25,11 @@ const DBConfig = TypeOrmModule.forRoot({
       type: 'mysql',
       synchronize: true,
       keepConnectionAlive: true,
-      entities: [User, Token],
+      entities: [User, Token, Blog],
 });
 
 @Module({
-      imports: [AuthModule, Config, DBConfig, UserModule, BotModule],
+      imports: [AuthModule, Config, DBConfig, UserModule, BotModule, BlogModule],
       controllers: [AppController],
       providers: [AppService],
 })

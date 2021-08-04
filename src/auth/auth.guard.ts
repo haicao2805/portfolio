@@ -1,6 +1,5 @@
 import { CanActivate, ExecutionContext, Injectable, UnauthorizedException } from '@nestjs/common';
 import { Request, Response } from 'express';
-import { UserRole } from 'src/user/entities/user.userRole.enum';
 import { AuthService } from './auth.service';
 
 @Injectable()

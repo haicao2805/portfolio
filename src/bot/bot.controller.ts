@@ -1,7 +1,6 @@
 import { Body, Controller, Post, Req, Res, UsePipes } from '@nestjs/common';
 import { Request, Response } from 'express';
 import { BotService } from './bot.service';
-import * as Joi from 'joi';
 import { UserResponse, vUserResponseValidator } from './entities/userResponse.entity';
 
 @Controller('bot')
