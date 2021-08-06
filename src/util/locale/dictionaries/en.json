@@ -1,0 +1,6 @@
+{
+	"error.invalid-input": "error.invalid-input",
+	"any.required": "any.required",
+	"string.empty": "string.empty",
+	"string.email": "string.email"
+}
