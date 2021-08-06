@@ -1,5 +1,6 @@
-import { Body, Controller, Delete, Get, Post, Put, Req, Res, UseGuards } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Post, Put, Req, Res, UseGuards, UsePipes } from '@nestjs/common';
 import { Request, Response } from 'express';
+import { JoiValidatorPipe } from 'src/util/validator/validator.pipe';
 import { UserGuard } from '../auth/auth.guard';
 import { BlogService } from './blog.service';
 import { AddBlogDTO, vAddBlogDTOValidator } from './dto/addBlogDTO.dto';
@@ -13,24 +14,16 @@ export class BlogController {
 
       @Post('/add')
       @UseGuards(UserGuard)
+      @UsePipes(new JoiValidatorPipe(vAddBlogDTOValidator))
       async cAdd(@Req() req: Request, @Res() res: Response, @Body() body: AddBlogDTO) {
-            const { error } = vAddBlogDTOValidator.validate(body, { abortEarly: false });
-            if (error) {
-                  return res.send(error);
-            }
-
             const blog = await this.blogService.saveBlog(body);
             return res.send({ message: 'Add blog success', data: blog });
       }
 
       @Delete('/delete')
       @UseGuards(UserGuard)
+      @UsePipes(new JoiValidatorPipe(vDeleteBlogDTOValidator))
       async cDelete(@Req() req: Request, @Res() res: Response, @Body() body: DeleteBlogDTO) {
-            const { error } = vDeleteBlogDTOValidator.validate(body);
-            if (error) {
-                  return res.send(error);
-            }
-
             const blog = await this.blogService.findBlogByField('id', body.blogId);
             if (!blog) {
                   return res.send({ message: 'Blog is not found' });
@@ -41,12 +34,8 @@ export class BlogController {
       }
 
       @Get('/getByCategory')
+      @UsePipes(new JoiValidatorPipe(vGetBlogByCategoryDTOValidator))
       async cGetByCategory(@Req() req: Request, @Res() res: Response, @Body() body: GetBlogByCategoryDTO) {
-            const { error } = vGetBlogByCategoryDTOValidator.validate(body);
-            if (error) {
-                  return res.send(error);
-            }
-
             const blogs: Blog[] = await this.blogService.findBlogsByField('category', body.category);
 
             return res.send(blogs);

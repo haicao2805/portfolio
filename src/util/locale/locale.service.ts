@@ -19,5 +19,6 @@ export class LocaleService {
                         formatApi.details[item] = this.translate(res.details[item].type, { ...res.details[item].context });
                   }
             }
+            return formatApi;
       }
 }

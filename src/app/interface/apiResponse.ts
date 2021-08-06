@@ -8,7 +8,7 @@ import {
 } from '@nestjs/common';
 import { LocaleService } from 'src/util/locale/locale.service';
 import { ErrorType } from '../type/errorType.type';
-import { ResponseForClient, ResponseForDeveloper } from './api.interface';
+import { ResponseForDeveloper } from './api.interface';
 
 class ApiReponse {
       constructor(private readonly localeService: LocaleService) {}
@@ -19,6 +19,7 @@ class ApiReponse {
 
       public sendError<T>(body: ResponseForDeveloper<T>, errorType: ErrorType) {
             const res = this.localeService.translateReponse(body);
+
             switch (errorType) {
                   case 'BadGatewayException':
                         return new BadGatewayException(res);
@@ -35,3 +36,5 @@ class ApiReponse {
             }
       }
 }
+
+export const apiResponse = new ApiReponse(new LocaleService());
