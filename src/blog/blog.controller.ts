@@ -14,7 +14,7 @@ export class BlogController {
       @Post('/add')
       @UseGuards(UserGuard)
       async cAdd(@Req() req: Request, @Res() res: Response, @Body() body: AddBlogDTO) {
-            const { error } = vAddBlogDTOValidator.validate(body);
+            const { error } = vAddBlogDTOValidator.validate(body, { abortEarly: false });
             if (error) {
                   return res.send(error);
             }
