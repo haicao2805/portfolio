@@ -1,5 +1,5 @@
-import { EntityRepository, Repository } from 'typeorm';
+import { EntityRepository, MongoRepository, Repository } from 'typeorm';
 import { Blog } from './blog.entity';
 
 @EntityRepository(Blog)
-export class BlogRepository extends Repository<Blog> {}
+export class BlogRepository extends MongoRepository<Blog> {}

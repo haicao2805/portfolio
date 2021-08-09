@@ -1,6 +1,7 @@
 import { Body, Controller, Delete, Get, Post, Put, Req, Res, UseGuards, UsePipes } from '@nestjs/common';
 import { Request, Response } from 'express';
 import { ObjectId } from 'mongodb';
+import { apiResponse } from 'src/app/interface/apiResponse';
 import { JoiValidatorPipe } from 'src/util/validator/validator.pipe';
 import { UserGuard } from '../auth/auth.guard';
 import { BlogService } from './blog.service';
@@ -18,7 +19,7 @@ export class BlogController {
       @UsePipes(new JoiValidatorPipe(vAddBlogDTOValidator))
       async cAdd(@Req() req: Request, @Res() res: Response, @Body() body: AddBlogDTO) {
             const blog = await this.blogService.saveBlog(body);
-            return res.send({ message: 'Add blog success', data: blog });
+            return apiResponse.send({ data: blog, details: { message: { type: 'message.add-success' } } });
       }
 
       @Delete('/delete')
@@ -27,11 +28,11 @@ export class BlogController {
       async cDelete(@Req() req: Request, @Res() res: Response, @Body() body: DeleteBlogDTO) {
             const blog = await this.blogService.findBlogByField('_id', new ObjectId(body.blogId));
             if (!blog) {
-                  return res.send({ message: 'Blog is not found' });
+                  throw apiResponse.sendError({ details: { errorMessage: { type: 'error.not-found' } } }, 'BadRequestException');
             }
 
             await this.blogService.deleteBlog(body.blogId);
-            return res.send({ message: 'Delete success', data: blog });
+            return apiResponse.send({ data: blog, details: { message: { type: 'message.delete-success' } } });
       }
 
       @Get('/getByCategory')
@@ -39,12 +40,13 @@ export class BlogController {
       async cGetByCategory(@Req() req: Request, @Res() res: Response, @Body() body: GetBlogByCategoryDTO) {
             const blogs: Blog[] = await this.blogService.findBlogsByField('category', body.category);
 
-            return res.send(blogs);
+            return apiResponse.send({ data: blogs, details: { message: { type: 'message.get-success' } } });
       }
 
       @Get('/getAll')
       async cGetAll(@Req() req: Request, @Res() res: Response) {
             const blogs: Blog[] = await this.blogService.getAllBlog();
-            return res.send(blogs);
+
+            return apiResponse.send({ data: blogs, details: { message: { type: 'message.get-success' } } });
       }
 }

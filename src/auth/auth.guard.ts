@@ -12,14 +12,12 @@ export class UserGuard implements CanActivate {
 
             // get token
             const token = req.cookies['token'] || '';
-            console.log(token);
             if (!token) {
                   res.cookie('token', '', { maxAge: 0 });
                   throw new UnauthorizedException({ message: 'You are not allow this action' });
             }
 
             const user = await this.authService.getUserByToken(token);
-            console.log(user);
             if (!user) {
                   res.cookie('token', '', { maxAge: 0 });
                   throw new UnauthorizedException({ message: 'You are not allow this action' });

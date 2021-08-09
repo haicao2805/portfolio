@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import { ObjectId } from 'mongodb';
 import { AddBlogDTO } from './dto/addBlogDTO.dto';
 import { Blog } from './entities/blog.entity';
 import { BlogRepository } from './entities/blog.repository';
@@ -11,7 +12,7 @@ export class BlogService {
       }
 
       async deleteBlog(blogId: string) {
-            return await this.blogRepository.delete(blogId);
+            return await this.blogRepository.findOneAndDelete({ blogId: new ObjectId(blogId) });
       }
 
       async findBlogByField(field: keyof Blog, value: any): Promise<Blog> {
