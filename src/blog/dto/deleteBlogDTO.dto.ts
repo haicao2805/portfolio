@@ -5,5 +5,5 @@ export class DeleteBlogDTO {
 }
 
 export const vDeleteBlogDTOValidator = Joi.object({
-      blogId: Joi.string().required(),
+      blogId: Joi.string().min(24).max(24).required(),
 });

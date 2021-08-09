@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
+import { ObjectId } from 'mongodb';
 import { User } from '../user/entities/user.entity';
 import { UserService } from '../user/user.service';
 import { Token } from './entities/token.entity';
@@ -67,7 +68,7 @@ export class AuthService {
       }
 
       async findTokenByField(field: keyof Token, value: any): Promise<Token> {
-            return await this.tokenRepository.createQueryBuilder().where(`${field} = :value`, { value }).getOne();
+            return await this.tokenRepository.findOne({ [`${field}`]: value });
       }
 
       /**
@@ -78,7 +79,7 @@ export class AuthService {
             let token: Token = this.verifyToken<Token>(jwtString);
             if (!token) return null;
 
-            token = await this.findTokenByField('id', token.id);
+            token = await this.findTokenByField('_id', new ObjectId(token._id));
             if (!token) return null;
 
             const user = await this.userService.findUserByField('googleId', token.data);
