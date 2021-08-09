@@ -1,13 +1,25 @@
-import { Body, Controller, Delete, Get, Post, Put, Req, Res, UseGuards, UsePipes } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Post, Req, Res, UseGuards, UsePipes } from '@nestjs/common';
 import { Request, Response } from 'express';
 import { ObjectId } from 'mongodb';
-import { apiResponse } from 'src/app/interface/apiResponse';
-import { JoiValidatorPipe } from 'src/util/validator/validator.pipe';
+
+// --- Interface, type --- ///
+import { apiResponse } from '../app/interface/apiResponse';
+
+// --- Pipe --- //
+import { JoiValidatorPipe } from '../util/validator/validator.pipe';
+
+// -- Guard -- //
 import { UserGuard } from '../auth/auth.guard';
+
+// --- Service --- ///
 import { BlogService } from './blog.service';
+
+// --- DTO --- //
 import { AddBlogDTO, vAddBlogDTOValidator } from './dto/addBlogDTO.dto';
 import { DeleteBlogDTO, vDeleteBlogDTOValidator } from './dto/deleteBlogDTO.dto';
 import { GetBlogByCategoryDTO, vGetBlogByCategoryDTOValidator } from './dto/getBlogByCategoryDTO.dto';
+
+// --- Entity --- //
 import { Blog } from './entities/blog.entity';
 
 @Controller('blog')

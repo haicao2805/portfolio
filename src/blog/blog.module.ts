@@ -1,8 +1,16 @@
-import { forwardRef, Module } from '@nestjs/common';
+import { Module } from '@nestjs/common';
+
+// --- Service --- //
 import { BlogService } from './blog.service';
+
+// --- Controller --- //
 import { BlogController } from './blog.controller';
-import { TypeOrmModule } from '@nestjs/typeorm';
+
+// --- Repository --- //
 import { BlogRepository } from './entities/blog.repository';
+
+// --- Module --- //
+import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from '../auth/auth.module';
 
 @Module({

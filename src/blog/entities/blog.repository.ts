@@ -1,4 +1,6 @@
-import { EntityRepository, MongoRepository, Repository } from 'typeorm';
+import { EntityRepository, MongoRepository } from 'typeorm';
+
+// --- Entity --- //
 import { Blog } from './blog.entity';
 
 @EntityRepository(Blog)

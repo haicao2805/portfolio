@@ -1,8 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { Profile, Strategy, VerifyCallback } from 'passport-google-oauth20';
-import { UserRole } from 'src/user/entities/user.userRole.enum';
+
+// --- Entity --- //
+import { UserRole } from '../../user/entities/user.userRole.enum';
 import { User } from '../../user/entities/user.entity';
+
+// --- Service --- //
 import { UserService } from '../../user/user.service';
 
 @Injectable()

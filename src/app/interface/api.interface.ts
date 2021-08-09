@@ -1,3 +1,4 @@
+// --- Interface, type --- //
 import { JoiError } from './joiError.interface';
 
 export interface ResponseForDeveloperDetail {

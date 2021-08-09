@@ -1,7 +1,13 @@
 import { Body, Controller, Post, Req, Res, UsePipes } from '@nestjs/common';
 import { Request, Response } from 'express';
-import { JoiValidatorPipe } from 'src/util/validator/validator.pipe';
+
+// --- Pipe --- //
+import { JoiValidatorPipe } from '../util/validator/validator.pipe';
+
+// --- Service --- //
 import { BotService } from './bot.service';
+
+// --- Entity --- //
 import { UserResponse, vUserResponseValidator } from './entities/userResponse.entity';
 
 @Controller('bot')
