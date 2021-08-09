@@ -43,7 +43,7 @@ export class AuthService {
        * @param googleId clear token base on googleId
        */
       async clearToken(googleId: string) {
-            await this.tokenRepository.delete({ data: googleId });
+            return await this.tokenRepository.delete({ data: googleId });
       }
 
       /**

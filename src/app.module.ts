@@ -21,7 +21,7 @@ import { Blog } from './blog/entities/blog.entity';
 
 const Config = ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: './config/.env',
+      envFilePath: `./config/.env.${process.env.NODE_ENV}`,
 });
 
 const DBConfig = TypeOrmModule.forRoot({
