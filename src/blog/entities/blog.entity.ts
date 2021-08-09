@@ -1,9 +1,10 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { ObjectId } from 'mongodb';
+import { Column, Entity, ObjectIdColumn, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class Blog {
-      @PrimaryGeneratedColumn('uuid')
-      id: string;
+      @ObjectIdColumn()
+      _id: ObjectId;
 
       @Column({ nullable: false })
       title: string;
@@ -14,6 +15,7 @@ export class Blog {
       @Column({ nullable: false })
       category: string;
 
+      // maximum 102236 characters
       @Column({ type: 'longtext' })
       content: string;
 

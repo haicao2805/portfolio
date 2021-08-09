@@ -1,5 +1,6 @@
 import { Body, Controller, Delete, Get, Post, Put, Req, Res, UseGuards, UsePipes } from '@nestjs/common';
 import { Request, Response } from 'express';
+import { ObjectId } from 'mongodb';
 import { JoiValidatorPipe } from 'src/util/validator/validator.pipe';
 import { UserGuard } from '../auth/auth.guard';
 import { BlogService } from './blog.service';
@@ -24,7 +25,7 @@ export class BlogController {
       @UseGuards(UserGuard)
       @UsePipes(new JoiValidatorPipe(vDeleteBlogDTOValidator))
       async cDelete(@Req() req: Request, @Res() res: Response, @Body() body: DeleteBlogDTO) {
-            const blog = await this.blogService.findBlogByField('id', body.blogId);
+            const blog = await this.blogService.findBlogByField('_id', new ObjectId(body.blogId));
             if (!blog) {
                   return res.send({ message: 'Blog is not found' });
             }

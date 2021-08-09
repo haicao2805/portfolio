@@ -15,14 +15,14 @@ export class BlogService {
       }
 
       async findBlogByField(field: keyof Blog, value: any): Promise<Blog> {
-            return await this.blogRepository.createQueryBuilder().where(`${field} = :value`, { value }).getOne();
+            return await this.blogRepository.findOne({ [`${field}`]: value });
       }
 
       async findBlogsByField(field: keyof Blog, value: any): Promise<Blog[]> {
-            return await this.blogRepository.createQueryBuilder().where(`${field} = :value`, { value }).orderBy('date', 'DESC').getMany();
+            return await this.blogRepository.find({ [`${field}`]: value });
       }
 
       async getAllBlog() {
-            return await this.blogRepository.createQueryBuilder().orderBy('date', 'DESC').getMany();
+            return await this.blogRepository.find();
       }
 }

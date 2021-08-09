@@ -1,10 +1,11 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { ObjectId } from 'mongodb';
+import { Column, Entity, ObjectIdColumn } from 'typeorm';
 import { UserRole } from './user.userRole.enum';
 
 @Entity()
 export class User {
-      @PrimaryGeneratedColumn('uuid')
-      id: string;
+      @ObjectIdColumn()
+      _id: ObjectId;
 
       @Column({ default: null, unique: true })
       googleId: string;

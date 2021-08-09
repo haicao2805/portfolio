@@ -11,6 +11,6 @@ export class UserService {
       }
 
       async findUserByField(field: keyof User, value: any): Promise<User> {
-            return await this.userRepository.createQueryBuilder().where(`${field} = :value`, { value }).getOne();
+            return await this.userRepository.findOne({ [`${field}`]: value });
       }
 }
