@@ -20,9 +20,10 @@ i18n.configure({
 export function router(app: INestApplication) {
       app.use(i18n.init);
       app.use(cookieParser());
-
+      app.setGlobalPrefix('/api');
       app.use(helmet());
       app.use(compression());
+      app.enableCors({ origin: process.env.CLIENT_URL, credentials: true });
 
       app.use((req: Request, res: Response, next: NextFunction) => {
             res.header('Access-Control-Allow-Methods', 'POST, GET, PUT');

@@ -1,15 +1,14 @@
 {
-      "error.invalid-input": "error.invalid-input",
-      "error.not-found": "is not found",
-      "error.not-allow": "is not allow",
-
-      "any.required": "is required",
-      "string.empty": "can not be empty",
-      "string.email": "is not a valid email",
-      "string.max": "should be equal or less than {{limit}}",
-      "string.min": "should be equal or greater than {{limit}}",
-
-      "message.delete-success": "delete successful",
-      "message.add-success": "add successful",
-      "message.get-success": "get successful"
+	"error.invalid-input": "error.invalid-input",
+	"error.not-found": "is not found",
+	"error.not-allow": "is not allow",
+	"any.required": "is required",
+	"string.empty": "can not be empty",
+	"string.email": "is not a valid email",
+	"string.max": "should be equal or less than {{limit}}",
+	"string.min": "should be equal or greater than {{limit}}",
+	"message.delete-success": "delete successful",
+	"message.add-success": "add successful",
+	"message.get-success": "get successful",
+	"phone.bothPhoneFormat": "phone.bothPhoneFormat"
 }
