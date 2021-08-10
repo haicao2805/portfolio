@@ -2,6 +2,8 @@ import { INestApplication } from '@nestjs/common';
 import * as cookieParser from 'cookie-parser';
 import * as i18n from 'i18n';
 import { Request, Response, NextFunction } from 'express';
+import * as helmet from 'helmet';
+import * as compression from 'compression';
 
 i18n.configure({
       locales: ['en', 'vi'],
@@ -18,6 +20,9 @@ i18n.configure({
 export function router(app: INestApplication) {
       app.use(i18n.init);
       app.use(cookieParser());
+
+      app.use(helmet());
+      app.use(compression());
 
       app.use((req: Request, res: Response, next: NextFunction) => {
             res.header('Access-Control-Allow-Methods', 'POST, GET, PUT');
