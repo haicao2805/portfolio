@@ -6,7 +6,11 @@ import {
       NotFoundException,
       UnauthorizedException,
 } from '@nestjs/common';
-import { LocaleService } from 'src/util/locale/locale.service';
+
+// --- Service --- //
+import { LocaleService } from '../../util/locale/locale.service';
+
+// Interface, type --- //
 import { ErrorType } from '../type/errorType.type';
 import { ResponseForDeveloper } from './api.interface';
 

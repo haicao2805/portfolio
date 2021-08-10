@@ -1,19 +1,27 @@
 import { Module } from '@nestjs/common';
+
+// --- Controller --- //
+import { AppController } from './app.controller';
+
+// --- Service --- //
+import { AppService } from './app.service';
+
+// --- Module --- //
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
-import { Token } from './auth/entities/token.entity';
-import { User } from './user/entities/user.entity';
 import { UserModule } from './user/user.module';
 import { BotModule } from './bot/bot.module';
 import { BlogModule } from './blog/blog.module';
+
+// --- Entity --- //
+import { Token } from './auth/entities/token.entity';
+import { User } from './user/entities/user.entity';
 import { Blog } from './blog/entities/blog.entity';
 
 const Config = ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: './config/.env',
+      envFilePath: `./config/.env.${process.env.NODE_ENV}`,
 });
 
 const DBConfig = TypeOrmModule.forRoot({

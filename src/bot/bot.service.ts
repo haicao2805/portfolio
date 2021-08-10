@@ -1,5 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import axios from 'axios';
+
+// --- Entity --- //
 import { UserResponse } from './entities/userResponse.entity';
 
 @Injectable()

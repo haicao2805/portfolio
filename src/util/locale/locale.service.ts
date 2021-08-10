@@ -1,5 +1,7 @@
-import { Dictionary } from './dictionary.type';
 import * as i18n from 'i18n';
+
+// --- Interface, type --- //
+import { Dictionary } from './dictionary.type';
 import { ResponseForClient, ResponseForDeveloper } from '../../app/interface/api.interface';
 
 export class LocaleService {
