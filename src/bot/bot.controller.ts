@@ -1,5 +1,6 @@
 import { Body, Controller, Post, Req, Res, UsePipes } from '@nestjs/common';
 import { Request, Response } from 'express';
+import { apiResponse } from 'src/app/interface/apiResponse';
 
 // --- Pipe --- //
 import { JoiValidatorPipe } from '../util/validator/validator.pipe';
@@ -16,9 +17,9 @@ export class BotController {
 
       @Post('/send')
       @UsePipes(new JoiValidatorPipe(vUserResponseValidator))
-      async cSend(@Req() req: Request, @Res() res: Response, @Body() body: UserResponse) {
+      async cSend(@Req() req: Request, @Body() body: UserResponse) {
             this.botService.sendUserResponse(body);
 
-            return res.send('ok');
+            return apiResponse.send({ details: { message: { type: 'message.send-message-success' } } });
       }
 }

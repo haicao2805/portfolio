@@ -10,5 +10,7 @@
 	"message.delete-success": "delete successful",
 	"message.add-success": "add successful",
 	"message.get-success": "get successful",
-	"phone.bothPhoneFormat": "phone.bothPhoneFormat"
+	"message.send-message-success": "have been sent",
+	"phone.bothPhoneFormat": "phone.bothPhoneFormat",
+	"object.unknown": "object.unknown"
 }

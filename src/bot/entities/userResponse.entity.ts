@@ -5,12 +5,12 @@ export class UserResponse {
       fullName: string;
       email: string;
       phone: string;
-      message: string;
+      content: string;
 }
 
 export const vUserResponseValidator = Joi.object({
       fullName: Joi.string().required(),
       email: Joi.string().min(5).max(255).email().required(),
-      phone: JoiPhoneFormat.string().bothPhoneFormat('vi'),
-      message: Joi.string().required(),
+      phone: JoiPhoneFormat.string().bothPhoneFormat('vi').required(),
+      content: Joi.string().required(),
 });
