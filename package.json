@@ -1,0 +1,62 @@
+{
+  "name": "portfolio",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Hai Cao's Portfolio",
+  "type": "module",
+  "scripts": {
+    "prepare": "husky install",
+    "prettier": "prettier '**/*.{js,ts,jsx,tsx}' --write",
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^5.2.1",
+    "clsx": "^2.1.1",
+    "embla-carousel": "^8.6.0",
+    "embla-carousel-react": "^8.6.0",
+    "framer-motion": "^12.23.12",
+    "isomorphic-dompurify": "^2.26.0",
+    "next": "15.4.6",
+    "next-themes": "^0.4.6",
+    "notistack": "^3.0.2",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-hook-form": "^7.62.0",
+    "react-icons": "^5.5.0",
+    "tailwind-merge": "^3.3.1",
+    "zod": "^4.1.5"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.4.6",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.6",
+    "prettier": "^3.6.2",
+    "prettier-plugin-tailwindcss": "^0.6.14",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  },
+  "keywords": [
+    "Portfolio",
+    "Resume",
+    "ReactJS",
+    "NextJS",
+    "TailwindCSS"
+  ],
+  "author": "Hai Cao <haicao2805@gmail.com>",
+  "homepage": "https://github.com/haicao2805/portfolio",
+  "license": "MIT",
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx}": [
+      "eslint --report-unused-disable-directives"
+    ]
+  }
+}
