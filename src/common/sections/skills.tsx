@@ -1,41 +1,45 @@
 import {
   SiCss3,
+  SiDocker,
   SiElectron,
+  SiExpress,
   SiFigma,
-  SiPostman,
+  SiFirebase,
   SiGit,
   SiGithub,
   SiGithubactions,
+  SiGrafana,
   SiHtml5,
   SiJavascript,
+  SiJest,
+  SiLoopback,
+  SiMeilisearch,
+  SiMinio,
+  SiMocha,
+  SiMongodb,
+  SiNestjs,
   SiNextdotjs,
+  SiNginx,
+  SiNodedotjs,
   SiNotion,
+  SiPostgresql,
+  SiPostman,
+  SiPrometheus,
   SiPython,
   SiReact,
   SiReactivex,
+  SiRedis,
   SiRedux,
   SiReduxsaga,
+  SiSelenium,
   SiSocketdotio,
+  SiSolidity,
+  SiSqlite,
   SiTailwindcss,
   SiTypescript,
   SiVite,
-  SiPostgresql,
-  SiNginx,
-  SiDocker,
-  SiLoopback,
-  SiRedis,
-  SiMeilisearch,
-  SiMongodb,
-  SiGrafana,
-  SiPrometheus,
-  SiJest,
-  SiSqlite,
-  SiMinio,
-  SiMocha,
-  SiSelenium,
-  SiNodedotjs,
-  SiNestjs,
-  SiExpress,
+  SiSupabase,
+  SiLibreoffice,
 } from 'react-icons/si';
 
 // --------------------------------------------------
@@ -44,12 +48,14 @@ export class Skills {
   static readonly JAVASCRIPT = 'JAVASCRIPT';
   static readonly TYPESCRIPT = 'TYPESCRIPT';
   static readonly PYTHON = 'PYTHON';
+  static readonly SOLIDITY = 'SOLIDITY';
 
   // Others
   static readonly HTML = 'HTML';
   static readonly CSS = 'CSS';
   static readonly FIGMA = 'FIGMA';
   static readonly NOTION = 'NOTION';
+  static readonly LIBRE_OFFICE = 'LIBRE_OFFICE';
 
   // Tools
   static readonly GIT = 'GIT';
@@ -57,6 +63,7 @@ export class Skills {
   static readonly GITHUB_ACTIONS = 'GITHUB_ACTIONS';
   static readonly VITE = 'VITE';
   static readonly POSTMAN = 'POSTMAN';
+  static readonly FIREBASE = 'FIREBASE';
 
   // Libraries & Frameworks
   static readonly NODE_JS = 'NODE_JS';
@@ -76,6 +83,8 @@ export class Skills {
   static readonly SELENIUM = 'SELENIUM';
   static readonly SQLITE = 'SQLITE';
   static readonly REACT_JS = 'REACT_JS';
+  static readonly REACT_ADMIN = 'REACT_ADMIN';
+  static readonly REACT_NATIVE = 'REACT_NATIVE';
   static readonly ELECTRON_JS = 'ELECTRON_JS';
   static readonly NEXT_JS = 'NEXT_JS';
   static readonly TAILWIND_CSS = 'TAILWIND_CSS';
@@ -84,18 +93,25 @@ export class Skills {
   static readonly SOCKET_IO = 'SOCKET_IO';
   static readonly REDUX_SAGA = 'REDUX_SAGA';
   static readonly WEB_SOCKET = 'WEB_SOCKET';
+  static readonly MINIO = 'MINIO';
+  static readonly SUPABASE = 'SUPABASE';
+  static readonly BULLMQ = 'BULLMQ';
+  static readonly CASBIN = 'CASBIN';
+  static readonly GRPC = 'GRPC';
 
   static readonly translate: Record<string, string> = {
     // Programming Languages
     [this.JAVASCRIPT]: 'JavaScript',
     [this.TYPESCRIPT]: 'TypeScript',
     [this.PYTHON]: 'Python',
+    [this.SOLIDITY]: 'Solidity',
 
     // Others
     [this.HTML]: 'HTML',
     [this.CSS]: 'CSS',
     [this.FIGMA]: 'Figma',
     [this.NOTION]: 'Notion',
+    [this.LIBRE_OFFICE]: 'Libre Office',
 
     // Tools
     [this.GIT]: 'Git',
@@ -103,6 +119,7 @@ export class Skills {
     [this.GITHUB_ACTIONS]: 'GitHub Actions',
     [this.VITE]: 'Vite',
     [this.POSTMAN]: 'Postman',
+    [this.FIREBASE]: 'Firebase',
 
     // Libraries & Frameworks
     [this.NODE_JS]: 'NodeJS',
@@ -122,6 +139,8 @@ export class Skills {
     [this.SELENIUM]: 'Selenium',
     [this.SQLITE]: 'SQLite',
     [this.REACT_JS]: 'ReactJS',
+    [this.REACT_ADMIN]: 'React Admin',
+    [this.REACT_NATIVE]: 'React Native',
     [this.ELECTRON_JS]: 'ElectronJS',
     [this.NEXT_JS]: 'NextJS',
     [this.TAILWIND_CSS]: 'Tailwind CSS',
@@ -130,6 +149,11 @@ export class Skills {
     [this.SOCKET_IO]: 'Socket.io',
     [this.REDUX_SAGA]: 'Redux Saga',
     [this.WEB_SOCKET]: 'WebSocket',
+    [this.MINIO]: 'Minio',
+    [this.SUPABASE]: 'Supabase',
+    [this.BULLMQ]: 'BullMQ',
+    [this.CASBIN]: 'Casbin',
+    [this.GRPC]: 'gRPC',
   };
 }
 
@@ -139,12 +163,14 @@ export const skillIcon: Record<string, React.ReactNode> = {
   [Skills.JAVASCRIPT]: <SiJavascript className="text-[#F7DF1E]" />,
   [Skills.TYPESCRIPT]: <SiTypescript className="text-[#3178C6]" />,
   [Skills.PYTHON]: <SiPython className="text-[#3776AB]" />,
+  [Skills.SOLIDITY]: <SiSolidity className="text-[#000000] dark:text-[#FFFFFF]" />,
 
   // Others
   [Skills.HTML]: <SiHtml5 className="text-[#E34F26]" />,
   [Skills.CSS]: <SiCss3 className="text-[#1572B6]" />,
   [Skills.FIGMA]: <SiFigma className="text-[#F24E1E]" />,
   [Skills.NOTION]: <SiNotion className="text-[#000000] dark:text-[#FFFFFF]" />,
+  [Skills.LIBRE_OFFICE]: <SiLibreoffice className="text-[#000000] dark:text-[#FFFFFF]" />,
 
   // Tools
   [Skills.GIT]: <SiGit className="text-[#F05032]" />,
@@ -152,6 +178,7 @@ export const skillIcon: Record<string, React.ReactNode> = {
   [Skills.GITHUB_ACTIONS]: <SiGithubactions className="text-[#2088FF]" />,
   [Skills.VITE]: <SiVite className="text-[#646CFF]" />,
   [Skills.POSTMAN]: <SiPostman className="text-[#FF6C37]" />,
+  [Skills.FIREBASE]: <SiFirebase className="text-[#FFCA28]" />,
 
   // Libraries & Frameworks
   [Skills.NODE_JS]: <SiNodedotjs className="text-[#3C873A]" />,
@@ -179,6 +206,8 @@ export const skillIcon: Record<string, React.ReactNode> = {
   [Skills.SOCKET_IO]: <SiSocketdotio className="text-[#010101] dark:text-[#FFFFFF]" />,
   [Skills.REDUX_SAGA]: <SiReduxsaga className="text-[#999999] dark:text-[#FFFFFF]" />,
   [Skills.WEB_SOCKET]: <></>,
+  [Skills.MINIO]: <SiMinio className="text-[#F3F3F3]" />,
+  [Skills.SUPABASE]: <SiSupabase className="text-[#000000] dark:text-[#FFFFFF]" />,
 };
 
 // --------------------------------------------------
