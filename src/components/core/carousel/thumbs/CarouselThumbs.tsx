@@ -47,7 +47,7 @@ const CarouselThumb: React.FC<ICarouselThumbProps> = (props) => {
       onClick={onClick}>
       <Image
         fill
-        style={{ objectFit: 'cover' }}
+        className="object-cover select-none"
         quality={100}
         loading="lazy"
         src={data.src}

@@ -78,14 +78,74 @@ export const projectData: IProject[] = [
     logo: `/projects/cts-dt/logo.png`,
     images: [
       {
-        id: 'crypto-desktop-1',
-        src: `/projects/cts-dt/all_screen.png`,
-        alt: `All screen`,
+        id: 'cts-dt-1',
+        src: `/projects/cts-dt/login_screen.png`,
+        alt: `Login Screen`,
       },
       {
-        id: 'crypto-desktop-2',
-        src: `/projects/cts-dt/order_chart_screen.png`,
-        alt: `Order Chart`,
+        id: 'cts-dt-2',
+        src: `/projects/cts-dt/0000_home_screen.png`,
+        alt: `Home Screen`,
+      },
+      {
+        id: 'cts-dt-3',
+        src: `/projects/cts-dt/0001_account_balance_screen.png`,
+        alt: `Account Balance Screen`,
+      },
+      {
+        id: 'cts-dt-4',
+        src: `/projects/cts-dt/0002_market_watch_screen.png`,
+        alt: `Market Watch Screen`,
+      },
+      {
+        id: 'cts-dt-5',
+        src: `/projects/cts-dt/1000_all_screen.png`,
+        alt: `All Screen`,
+      },
+      {
+        id: 'cts-dt-6',
+        src: `/projects/cts-dt/1001_order_book_screen.png`,
+        alt: `Order Book Screen`,
+      },
+      {
+        id: 'cts-dt-7',
+        src: `/projects/cts-dt/1003_market_trade_screen.png`,
+        alt: `Market Trade Screen`,
+      },
+      {
+        id: 'cts-dt-8',
+        src: `/projects/cts-dt/1004_portfolio_screen.png`,
+        alt: `Portfolio Screen`,
+      },
+      {
+        id: 'cts-dt-9',
+        src: `/projects/cts-dt/1006_order_history_screen.png`,
+        alt: `Order History Screen`,
+      },
+      {
+        id: 'cts-dt-10',
+        src: `/projects/cts-dt/1007_hedge_order_screen.png`,
+        alt: `Hedge Order Screen`,
+      },
+      {
+        id: 'cts-dt-11',
+        src: `/projects/cts-dt/2000_order_chart_screen.png`,
+        alt: `Order Chart Screen`,
+      },
+      {
+        id: 'cts-dt-12',
+        src: `/projects/cts-dt/2001_chart_multiple_panel_screen.png`,
+        alt: `Chart Multiple Panel Screen`,
+      },
+      {
+        id: 'cts-dt-13',
+        src: `/projects/cts-dt/2002_tick_chart_screen.png`,
+        alt: `Tick Chart Screen`,
+      },
+      {
+        id: 'cts-dt-14',
+        src: `/projects/cts-dt/2003_chart_sync_screen.png`,
+        alt: `Chart Sync Screen`,
       },
     ],
   },
